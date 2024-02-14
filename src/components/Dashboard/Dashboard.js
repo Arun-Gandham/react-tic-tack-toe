@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
 import PlayersMenu from "../PlayersMenu/PlayersMenu";
 import "./Dashboard.css";
 import GameBoard from "../GameBoard/GameBoard";
 const Dashboard = () => {
   const [playerTurn, playerTurnState] = useState("O");
+  const buttonDefaultState = Array(9).fill("\u00A0");
+  const [buttonValues, setButtonValues] = useState(buttonDefaultState);
+  const [isGameEnable, setisGameEnable] = useState(true);
+  const [player1, setPlayer1] = useState([]);
+  const [player2, setPlayer2] = useState([]);
   const possibleWinPatterns = [
     [1, 2, 3],
     [4, 5, 6],
@@ -15,8 +19,7 @@ const Dashboard = () => {
     [1, 5, 9],
     [3, 5, 7],
   ];
-  const [player1, setPlayer1] = useState([]);
-  const [player2, setPlayer2] = useState([]);
+
   const buttonClicked = (num) => {
     playerTurnState(playerTurn === "O" ? "X" : "O");
     if (playerTurn === "O") {
@@ -27,6 +30,10 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
+    if (!buttonValues.some((value) => value === "\u00A0")) {
+      setStatus("Game draw");
+      setisGameEnable(false);
+    }
     if (hasWinningPattern(player1)) {
       setStatus("Player 1 win");
       setisGameEnable(false);
@@ -36,9 +43,7 @@ const Dashboard = () => {
       setisGameEnable(false);
     }
   }, [player1, player2]); // This effect runs when player1 changes
-  const buttonDefaultState = Array(9).fill("\u00A0");
-  const [buttonValues, setButtonValues] = useState(buttonDefaultState);
-  const [isGameEnable, setisGameEnable] = useState(true);
+
   const resetGame = () => {
     setButtonValues(buttonDefaultState);
     playerTurnState("O");
