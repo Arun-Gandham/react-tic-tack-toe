@@ -1,11 +1,6 @@
-import PropTypes from "prop-types";
 import "./PlayersMenu.css";
 
-const PlayersMenu = ({playerTurn,playerTurnState}) => {
-  
-  const changePlayer = () => {
-    playerTurnState(playerTurn === "O" ? "X" : "O");
-  };
+const PlayersMenu = ({ playerTurn, playerTurnState }) => {
   return (
     <div className="text-center">
       <div className="text-center">
@@ -23,10 +18,8 @@ const PlayersMenu = ({playerTurn,playerTurnState}) => {
           Player 2 (X)
         </div>
       </div>
-      
     </div>
   );
 };
-
 
 export default PlayersMenu;
