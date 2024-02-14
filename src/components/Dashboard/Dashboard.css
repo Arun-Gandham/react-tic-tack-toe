@@ -1,0 +1,11 @@
+.outer{
+    width: 100%;
+    background-color: #8CFFDB;
+    height: 100vh;
+}
+
+.con-inner{
+    border: 3px solid gray;
+    border-radius: 10px;
+    height: 95vh;
+}
