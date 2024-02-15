@@ -62,6 +62,25 @@ const Dashboard = () => {
     <div className="outer">
       <div className="container p-3">
         <div className="p-3 con-inner">
+          <div className="game-board text-center">
+            {/* <div className="text-center">
+              <h1>Tic Tac Toe</h1>
+            </div> */}
+            <div className="game-outer">
+              <GameBoard
+                buttonClicked={buttonClicked}
+                playerTurn={playerTurn}
+                player1={player1}
+                player2={player2}
+                buttonValues={buttonValues}
+                setButtonValues={setButtonValues}
+                isGameEnable={isGameEnable}
+              />
+            </div>
+          </div>
+          <div className="text-center">
+            <h1 className="status">{status}</h1>
+          </div>
           <PlayersMenu
             playerTurn={playerTurn}
             playerTurnState={playerTurnState}
@@ -71,19 +90,6 @@ const Dashboard = () => {
             <button className="btn btn-primary" onClick={resetGame}>
               Restart
             </button>
-            <h1>{status}</h1>
-          </div>
-
-          <div className="game-board text-center">
-            <GameBoard
-              buttonClicked={buttonClicked}
-              playerTurn={playerTurn}
-              player1={player1}
-              player2={player2}
-              buttonValues={buttonValues}
-              setButtonValues={setButtonValues}
-              isGameEnable={isGameEnable}
-            />
           </div>
         </div>
       </div>

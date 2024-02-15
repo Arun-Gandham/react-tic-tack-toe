@@ -1,22 +1,38 @@
-.game-outer{
-    width: 50%;
-    margin: 0px auto;
-    margin-top: 100px;
+.game-outer {
+  width: 70%;
+  margin: 0px auto;
+  /* margin-top: 100px; */
 }
 .game-outer p {
-padding: 20px;
+  padding: 20px;
 }
 
-.b-right{
-    border-right: 2px solid gray;
+.b-right {
+  border-right: 4px solid whitesmoke;
 }
 
-.b-bottom{
-    border-bottom: 2px solid gray;
+.b-bottom {
+  border-bottom: 4px solid whitesmoke;
 }
 
-.button-text{
-    font-size: 30px;
-    font-weight: 400;
+.button-text {
+  font-size: 40px;
+  font-weight: 400;
+  padding: 10px 10px;
+  color: whitesmoke;
 }
 
+.button-text p {
+  font-size: 85px;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .button-text p {
+        font-size: 25px;
+      }
+
+      .button-text {
+        padding: 0px 0px;
+      }
+  }
